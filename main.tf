@@ -5,13 +5,13 @@ provider "google" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "manager-instance"
+  name         = "terraform-instance"
   machine_type = "f1-micro"
   zone = "us-central1-a"
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804-lts"
+      image = "debian-cloud/debian-9"
     }
   }
 
@@ -22,19 +22,11 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 }
-resource "google_compute_instance" "vm_nodes_1" {
-  name         = "node-instance-1"
-  machine_type = "f1-micro"
-  zone = "us-central1-a"
 
-  boot_disk {
-    initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804-lts"
-    }
-  }
+resource "google_storage_bucket" "demo" {
+  name          = "bucket-terraform-123"
+  location      = "US"
+  force_destroy = true
 
-  network_interface {
-    # A default network is created for all GCP projects
-    network       = "default"
-    access_config {
-    }
+  bucket_policy_only = true
+}
