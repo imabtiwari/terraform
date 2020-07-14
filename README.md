@@ -17,6 +17,6 @@
 > terraform destory
 
 *to know about the terraform please visit following* 
-[click here] (https://www.terraform.io/docs/commands/index.html)
+[click here](https://www.terraform.io/docs/commands/index.html)
 
-[terraform documentation] (https://www.terraform.io/docs/providers/google/r/compute_instance.html)
+[terraform documentation](https://www.terraform.io/docs/providers/google/r/compute_instance.html)
